@@ -12,13 +12,24 @@ def createTree():
     root.left.left  = Node(4) 
     root.left.right  = Node(5) 
     return root
-   
+
+# Return a sample tree with 5 nodes
+def createTree2():
+    print("Method is {}".format(createTree2.__name__))
+    root = Node(10) 
+    root.left      = Node(11) 
+    root.right     = Node(9) 
+    root.left.left  = Node(7) 
+    root.right.left = Node(15)
+    root.right.right = Node(8)
+    return root
+  
 # Method to print inorder, postorder and preorder traversals
-def printOrders(root=None):
+def printOrders (root = None):
 
     print("Method is {}".format(printOrders.__name__))
 
-    if isinstance (root,Node):
+    if isinstance (root, Node):
         # Will call order class methods of class Node
         print("The InOrder Traversal of the tree: ")
         root.inOrder(root)
@@ -34,9 +45,13 @@ def printOrders(root=None):
    
 def main():
     print("Method is {}".format(main.__name__))
-    n = int(input("Enter the number whose node is to created : "))
-    node = Node(n)
-#    printOrders(node)
+    #root = createTree()
+    #root = createTree2()
+    root = Node(1)
+    input_list = input("Enter the list of numbers whose node is to created : ")
+    for val in input_list.split():
+        root.insert (root, val)
+    printOrders(root)
 #    printOrders(createTree())
 #    printOrders()
 
